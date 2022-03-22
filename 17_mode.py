@@ -1,3 +1,6 @@
+from smtplib import SMTPNotSupportedError
+
+
 def mode(nums):
     """Return most-common number in list.
 
@@ -11,3 +14,8 @@ def mode(nums):
         >>> mode([2, 2, 3, 3, 2])
         2
     """
+    counter = {nums.count(num):num for num in nums}
+    counterKeys = list(counter.keys())
+    counterKeys.sort()
+    highest = counterKeys[-1]
+    return counter[highest]
